@@ -15,7 +15,14 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Testing App"),
       ),
-      body: Text("Hi man"),
+      body: Center(
+        child: Container(
+          color: Colors.red,
+          width: 100,
+          height: 100,
+          child: Center(child: Text("I am a box")),
+        ),
+      ),
     );
   }
 }
