@@ -1,10 +1,11 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
     home: HomePage(),
     theme: ThemeData(
-      primarySwatch: Colors.purple
+      primarySwatch: Colors.blue
     ),
   ));
 }
@@ -15,14 +16,13 @@ class HomePage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(title: Text("Testing App"),
       ),
-      body: Center(
-        child: Container(
-          color: Colors.red,
-          width: 100,
-          height: 100,
-          child: Center(child: Text("I am a box")),
-        ),
-      ),
+       body: Container(
+           child: Image.asset('assets/images/background.png',
+           fit: BoxFit.cover,
+           height: double.infinity,
+           width: double.infinity,
+           alignment: Alignment.center,)
+       )
     );
   }
 }
