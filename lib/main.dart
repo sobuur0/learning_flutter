@@ -44,6 +44,20 @@ class MyAppBar extends StatelessWidget {
   }
 }
 
+class FloatingButton extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      floatingActionButton: FloatingActionButton(
+        child: Icon(Icons.add),
+        tooltip: 'Add',
+        onPressed: null,
+      ),
+    );
+  }
+}
+
+
 
 class HomePage extends StatelessWidget {
   @override
@@ -53,11 +67,20 @@ class HomePage extends StatelessWidget {
         children: <Widget> [
           MyAppBar(),
           Expanded(
+            flex: 3,
               child: Image.asset('assets/images/background.png',
                 fit: BoxFit.cover,
                 height: double.infinity,
                 width: double.infinity,)
           ),
+
+          Expanded(
+            flex: 1,
+              child: Container(
+                  child: FloatingButton()
+              )
+          )
+
         ],
       ),
        // body: Container(
