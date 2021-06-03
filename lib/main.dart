@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 void main() {
   runApp(MaterialApp(
+    title: 'First App',
     home: SafeArea(
       child: HomePage(),
     ),
@@ -27,12 +28,15 @@ class MyAppBar extends StatelessWidget {
               icon: Icon(Icons.menu)
           ),
           Expanded(
-            child: Text("Testing App"),
+            child: Text("Testing App",
+            style: Theme.of(context)
+              .primaryTextTheme
+              .headline5),
           ),
           IconButton(
-              onPressed: null,
               icon: Icon(Icons.search),
               tooltip: 'Search Menu',
+              onPressed: null,
           ),
         ],
       ),
