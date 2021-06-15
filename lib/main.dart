@@ -50,7 +50,7 @@ class FloatingButton extends StatelessWidget {
     return Scaffold(
       floatingActionButton: FloatingActionButton(
         child: Icon(Icons.add),
-        tooltip: 'Add',
+        tooltip: 'Subtract',
         onPressed: null,
       ),
     );
