@@ -2,44 +2,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(testApp());
+  runApp(ContainerApp());
 }
 
-class testApp extends StatefulWidget {
-  @override
-  _testAppState createState() => _testAppState();
-}
-
-
-
-class _testAppState extends State<testApp> {
-
-  String ttext = '';
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    ttext = 'Click on this Button bruh';
-  }
-
-  void changeText() {
-    setState(() {
-      ttext = 'Text is now changed';
-    });
-  }
-
+class ContainerApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Testing App With Stateful Widget',
       home: Scaffold(
-        body: Center(
-          child: RaisedButton(onPressed: changeText, child: Text(ttext),),
+        body: Container(
+          child: Text('When actually using a Container, only one child property can be set in the container.'),
+          alignment: Alignment.center,
+          padding: const EdgeInsets.all(40),
+          height: 300,
+          width: 300,
+          decoration: BoxDecoration(
+            color: Colors.green,
+          ),
+          transform: Matrix4.rotationZ(0.7),
         ),
       ),
     );
   }
 }
+
 
 
 
