@@ -10,25 +10,23 @@ class RowAndColumn extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        appBar: AppBar(title: Text('Row and Column'),),
-        body: Container(
-          padding: const EdgeInsets.all(40),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Text('Row 1'),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: <Widget> [
-                  Text('Column1'),
-                  Text('Column2'),
-                  Text('Column3'),
-                ],
-              ),
-              Text('Row2')
-            ],
-          ),
-        ),
+        appBar: AppBar(title: Text('listWidget'),),
+        body: ListView(
+          children: <Widget> [
+            ListTile(
+              title: Text('First Item'),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+            ListTile(
+              title: Text('Second Item'),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+            ListTile(
+              title: Text('third Item'),
+              trailing: Icon(Icons.arrow_forward_ios),
+            ),
+          ],
+        )
       )
     );
   }
