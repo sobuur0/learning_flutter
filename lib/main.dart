@@ -12,6 +12,7 @@ class RowAndColumn extends StatelessWidget {
       home: Scaffold(
         appBar: AppBar(title: Text('Row and Column'),),
         body: Container(
+          padding: const EdgeInsets.all(40),
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
