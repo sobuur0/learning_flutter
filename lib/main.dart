@@ -2,26 +2,33 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ContainerApp());
+  runApp(RowAndColumn());
 }
 
-class ContainerApp extends StatelessWidget {
+class RowAndColumn extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(title: Text('Row and Column'),),
         body: Container(
-          child: Text('When actually using a Container, only one child property can be set in the container.'),
-          alignment: Alignment.center,
-          padding: const EdgeInsets.all(40),
-          height: 300,
-          width: 300,
-          decoration: BoxDecoration(
-            color: Colors.green,
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text('Row 1'),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget> [
+                  Text('Column1'),
+                  Text('Column2'),
+                  Text('Column3'),
+                ],
+              ),
+              Text('Row2')
+            ],
           ),
-          transform: Matrix4.rotationZ(0.7),
         ),
-      ),
+      )
     );
   }
 }
