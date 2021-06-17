@@ -1,36 +1,49 @@
+import 'dart:collection';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(RowAndColumn());
+  runApp(ListAndArrays());
 }
 
-class RowAndColumn extends StatelessWidget {
+class ListAndArrays extends StatefulWidget {
+  @override
+  _ListAndArraysState createState() => _ListAndArraysState();
+}
+
+class _ListAndArraysState extends State<ListAndArrays> {
+
+  List<int> count = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    for(int i=0; i<50; i++) {
+      count.add(i);
+    }
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      title: 'ListAndArrays',
       home: Scaffold(
-        appBar: AppBar(title: Text('listWidget'),),
-        body: ListView(
-          children: <Widget> [
-            ListTile(
-              title: Text('First Item'),
-              trailing: Icon(Icons.arrow_forward_ios),
-            ),
-            ListTile(
-              title: Text('Second Item'),
-              trailing: Icon(Icons.arrow_forward_ios),
-            ),
-            ListTile(
-              title: Text('third Item'),
-              trailing: Icon(Icons.arrow_forward_ios),
-            ),
-          ],
-        )
-      )
+        body: ListView.builder(
+          itemCount: count.length,
+            itemBuilder: (BuildContext context, int index) {
+            return ListTile(
+              title: Text('Item number: $index'),
+              trailing: Icon(Icons.arrow_forward_ios_sharp),
+            );
+            }
+        ),
+      ),
     );
   }
 }
+
 
 
 
