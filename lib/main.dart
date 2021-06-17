@@ -6,41 +6,27 @@ import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: GridView(),
+    home: AppBarTest(),
   ));
 }
 
-class GridView extends StatefulWidget {
+class AppBarTest extends StatefulWidget {
   @override
-  _GridViewState createState() => _GridViewState();
+  _AppBarTestState createState() => _AppBarTestState();
 }
 
-class _GridViewState extends State<GridView> {
-
-  List<int> count = [];
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    for(int i=0; i<50; i++) {
-      count.add(i);
-    }
-    super.initState();
-  }
-
+class _AppBarTestState extends State<AppBarTest> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.builder(
-          itemCount: count.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              color: Colors.red,
-              child: Padding(padding: const EdgeInsets.all(20),),
-            );
-          }
-      )
+      appBar: AppBar(
+        title: Text('My First App',
+        style: TextStyle(color: Colors.red),),
+        backgroundColor: Colors.white,
+        toolbarOpacity: 0.5,
+        elevation: 50,
+        centerTitle: true,
+      ),
     );
   }
 }
