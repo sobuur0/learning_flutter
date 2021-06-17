@@ -4,41 +4,30 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(ListAndArrays());
+  runApp(MaterialApp(
+    home: Stacks(),
+  ));
 }
 
-class ListAndArrays extends StatefulWidget {
+class Stacks extends StatefulWidget {
   @override
-  _ListAndArraysState createState() => _ListAndArraysState();
+  _StacksState createState() => _StacksState();
 }
 
-class _ListAndArraysState extends State<ListAndArrays> {
-
-  List<int> count = [];
-
-  @override
-  void initState() {
-    // TODO: implement initState
-    for(int i=0; i<50; i++) {
-      count.add(i);
-    }
-    super.initState();
-  }
+class _StacksState extends State<Stacks> {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: 'ListAndArrays',
-      home: Scaffold(
-        body: ListView.builder(
-          itemCount: count.length,
-            itemBuilder: (BuildContext context, int index) {
-            return ListTile(
-              title: Text('Item number: $index'),
-              trailing: Icon(Icons.arrow_forward_ios_sharp),
-            );
-            }
-        ),
+    return Scaffold(
+      body: Stack(
+        alignment: Alignment.bottomCenter,
+        children: <Widget> [
+          Card(color: Colors.blue, child: Padding(padding: const EdgeInsets.all(200),),),
+          Card(color: Colors.red, child: Padding(padding: const EdgeInsets.all(100),),),
+          Card(color: Colors.brown, child: Padding(padding: const EdgeInsets.all(50),),),
+          Card(color: Colors.cyan, child: Padding(padding: const EdgeInsets.all(30),),),
+          Card(color: Colors.yellow, child: Padding(padding: const EdgeInsets.all(10),),),
+        ],
       ),
     );
   }
