@@ -2,33 +2,45 @@ import 'dart:collection';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: Stacks(),
+    home: GridView(),
   ));
 }
 
-class Stacks extends StatefulWidget {
+class GridView extends StatefulWidget {
   @override
-  _StacksState createState() => _StacksState();
+  _GridViewState createState() => _GridViewState();
 }
 
-class _StacksState extends State<Stacks> {
+class _GridViewState extends State<GridView> {
+
+  List<int> count = [];
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    for(int i=0; i<50; i++) {
+      count.add(i);
+    }
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        alignment: Alignment.bottomCenter,
-        children: <Widget> [
-          Card(color: Colors.blue, child: Padding(padding: const EdgeInsets.all(200),),),
-          Card(color: Colors.red, child: Padding(padding: const EdgeInsets.all(100),),),
-          Card(color: Colors.brown, child: Padding(padding: const EdgeInsets.all(50),),),
-          Card(color: Colors.cyan, child: Padding(padding: const EdgeInsets.all(30),),),
-          Card(color: Colors.yellow, child: Padding(padding: const EdgeInsets.all(10),),),
-        ],
-      ),
+      body: GridView.builder(
+          itemCount: count.length,
+          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
+          itemBuilder: (BuildContext context, int index) {
+            return Card(
+              color: Colors.red,
+              child: Padding(padding: const EdgeInsets.all(20),),
+            );
+          }
+      )
     );
   }
 }
