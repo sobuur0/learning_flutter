@@ -15,17 +15,29 @@ class AppBarTest extends StatefulWidget {
   _AppBarTestState createState() => _AppBarTestState();
 }
 
-class _AppBarTestState extends State<AppBarTest> {
+class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateMixin {
+
+  late TabController _tabController;
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    _tabController = new TabController(length: 3, vsync: this);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('My First App',
-        style: TextStyle(color: Colors.red),),
-        backgroundColor: Colors.white,
-        toolbarOpacity: 0.5,
-        elevation: 50,
-        centerTitle: true,
+        title: Text('AppBar Test'),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: <Widget> [
+            Tab(icon: Icon(Icons.home_filled),),
+            Tab(icon: Icon(Icons.feed),),
+            Tab(icon: Icon(Icons.create),),
+          ],
+        ),
       ),
     );
   }
