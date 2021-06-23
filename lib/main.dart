@@ -6,41 +6,39 @@ import 'package:flutter/widgets.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: GridView(),
+    home: AppBarTest(),
   ));
 }
 
-class GridView extends StatefulWidget {
+class AppBarTest extends StatefulWidget {
   @override
-  _GridViewState createState() => _GridViewState();
+  _AppBarTestState createState() => _AppBarTestState();
 }
 
-class _GridViewState extends State<GridView> {
+class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateMixin {
 
-  List<int> count = [];
+  late TabController _tabController;
 
   @override
   void initState() {
     // TODO: implement initState
-    for(int i=0; i<50; i++) {
-      count.add(i);
-    }
-    super.initState();
+    _tabController = new TabController(length: 3, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: GridView.builder(
-          itemCount: count.length,
-          gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(crossAxisCount: 4),
-          itemBuilder: (BuildContext context, int index) {
-            return Card(
-              color: Colors.red,
-              child: Padding(padding: const EdgeInsets.all(20),),
-            );
-          }
-      )
+      appBar: AppBar(
+        title: Text('AppBar Test'),
+        bottom: TabBar(
+          controller: _tabController,
+          tabs: <Widget> [
+            Tab(icon: Icon(Icons.home_filled),),
+            Tab(icon: Icon(Icons.feed),),
+            Tab(icon: Icon(Icons.create),),
+          ],
+        ),
+      ),
     );
   }
 }
