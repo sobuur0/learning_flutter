@@ -18,17 +18,20 @@ class AppBarTest extends StatefulWidget {
 class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateMixin {
 
   late TabController _tabController;
+  late TabController _tabController2;
 
   @override
   void initState() {
     // TODO: implement initState
     _tabController = new TabController(length: 3, vsync: this);
+    _tabController2 = new TabController(length: 4, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightBlue,
         title: Text('AppBar Test'),
         bottom: TabBar(
           controller: _tabController,
@@ -38,6 +41,15 @@ class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateM
             Tab(icon: Icon(Icons.create),),
           ],
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController2,
+        children: <Widget> [
+          Tab(icon: Icon(Icons.account_box_sharp),),
+          Tab(icon: Icon(Icons.home_filled),),
+          Tab(icon: Icon(Icons.menu),),
+          Tab(icon: Icon(Icons.payments),),
+        ],
       ),
     );
   }
