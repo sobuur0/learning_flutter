@@ -3,6 +3,9 @@ import 'dart:collection';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:testing_app/createScreen.dart';
+import 'package:testing_app/feedScreen.dart';
+import 'package:testing_app/homeFilledScreen.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -45,9 +48,9 @@ class _AppBarTestState extends State<AppBarTest> with TickerProviderStateMixin {
       body: TabBarView(
         controller: _tabController,
         children: <Widget> [
-         Center(child: Text('This child is placed at the center of the screen for the home filled screen'),),
-          Center(child: Text('This child is placed at the center of the screen for the feed screen'),),
-           Center(child: Text('This child is placed at the center of the screen for the create screen'),),
+         HomeFilled(),
+          FeedScreen(),
+           CreateScreen(),
         ],
       ),
 
