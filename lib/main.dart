@@ -48,8 +48,20 @@ class _AppBarTestState extends State<AppBarTest> with TickerProviderStateMixin {
          Center(child: Text('This child is placed at the center of the screen for the home filled screen'),),
           Center(child: Text('This child is placed at the center of the screen for the feed screen'),),
            Center(child: Text('This child is placed at the center of the screen for the create screen'),),
-
         ],
+      ),
+
+      bottomNavigationBar: Material(
+        color: Colors.transparent,
+        child: TabBar(
+          controller: _tabController2,
+          tabs: <Widget> [
+            Tab(icon: Icon(Icons.expand, color: Colors.black,),),
+            Tab(icon: Icon(Icons.account_box, color: Colors.black,)),
+            Tab(icon: Icon(Icons.ac_unit, color: Colors.black,)),
+            Tab(icon: Icon(Icons.accessibility_new_rounded, color: Colors.black,)),
+          ]
+        )
       ),
     );
   }
