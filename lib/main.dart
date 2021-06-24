@@ -25,7 +25,6 @@ class _AppBarTestState extends State<AppBarTest> with TickerProviderStateMixin {
 
   @override
   void initState() {
-    // TODO: implement initState
     _tabController = new TabController(length: 3, vsync: this);
     _tabController2 = new TabController(length: 4, vsync: this);
   }
