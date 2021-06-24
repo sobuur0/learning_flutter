@@ -15,7 +15,7 @@ class AppBarTest extends StatefulWidget {
   _AppBarTestState createState() => _AppBarTestState();
 }
 
-class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateMixin {
+class _AppBarTestState extends State<AppBarTest> with TickerProviderStateMixin {
 
   late TabController _tabController;
   late TabController _tabController2;
@@ -43,12 +43,12 @@ class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateM
         ),
       ),
       body: TabBarView(
-        controller: _tabController2,
+        controller: _tabController,
         children: <Widget> [
-          Tab(icon: Icon(Icons.account_box_sharp),),
-          Tab(icon: Icon(Icons.home_filled),),
-          Tab(icon: Icon(Icons.menu),),
-          Tab(icon: Icon(Icons.payments),),
+         Center(child: Text('This child is placed at the center of the screen for the home filled screen'),),
+          Center(child: Text('This child is placed at the center of the screen for the feed screen'),),
+           Center(child: Text('This child is placed at the center of the screen for the create screen'),),
+
         ],
       ),
     );
