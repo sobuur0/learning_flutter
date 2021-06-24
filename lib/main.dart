@@ -15,20 +15,23 @@ class AppBarTest extends StatefulWidget {
   _AppBarTestState createState() => _AppBarTestState();
 }
 
-class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateMixin {
+class _AppBarTestState extends State<AppBarTest> with TickerProviderStateMixin {
 
   late TabController _tabController;
+  late TabController _tabController2;
 
   @override
   void initState() {
     // TODO: implement initState
     _tabController = new TabController(length: 3, vsync: this);
+    _tabController2 = new TabController(length: 4, vsync: this);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Colors.lightBlue,
         title: Text('AppBar Test'),
         bottom: TabBar(
           controller: _tabController,
@@ -38,6 +41,27 @@ class _AppBarTestState extends State<AppBarTest> with SingleTickerProviderStateM
             Tab(icon: Icon(Icons.create),),
           ],
         ),
+      ),
+      body: TabBarView(
+        controller: _tabController,
+        children: <Widget> [
+         Center(child: Text('This child is placed at the center of the screen for the home filled screen'),),
+          Center(child: Text('This child is placed at the center of the screen for the feed screen'),),
+           Center(child: Text('This child is placed at the center of the screen for the create screen'),),
+        ],
+      ),
+
+      bottomNavigationBar: Material(
+        color: Colors.transparent,
+        child: TabBar(
+          controller: _tabController2,
+          tabs: <Widget> [
+            Tab(icon: Icon(Icons.expand, color: Colors.black,),),
+            Tab(icon: Icon(Icons.account_box, color: Colors.black,)),
+            Tab(icon: Icon(Icons.ac_unit, color: Colors.black,)),
+            Tab(icon: Icon(Icons.accessibility_new_rounded, color: Colors.black,)),
+          ]
+        )
       ),
     );
   }
