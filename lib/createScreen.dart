@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
 
 
@@ -9,11 +10,32 @@ class CreateScreen extends StatefulWidget {
 }
 
 class _CreateScreenState extends State<CreateScreen> {
+  String ptext = '';
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Center(
-        child: Text('This child is placed at the center of the screen for the create screen'),
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.transparent,
+          elevation: 0,
+          title: Text('Create your favourite User', style: TextStyle(color: Colors.cyan),),
+          centerTitle: true,
+        ),
+        body: Column(
+          children: <Widget> [
+            TextField(
+              onChanged: (String txt) {
+                setState(() {
+                  ptext = txt;
+                });
+              },
+            ),
+            Expanded(child: Text(
+              ptext,
+            ))
+          ],
+        ),
       ),
     );
   }
