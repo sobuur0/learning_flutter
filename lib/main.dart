@@ -54,12 +54,27 @@ class _AppBarTestState extends State<AppBarTest> with TickerProviderStateMixin {
       ),
 
       bottomNavigationBar: Material(
-        color: Colors.transparent,
+        color: Colors.white,
         child: TabBar(
           controller: _tabController2,
           tabs: <Widget> [
-            Tab(icon: Icon(Icons.expand, color: Colors.black,),),
-            Tab(icon: Icon(Icons.account_box, color: Colors.black,)),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                width: 80,
+                child: Row(
+                  textDirection: TextDirection.ltr,
+                  children: <Widget> [
+                    Tab(icon: Icon(Icons.home, color: Colors.black,)),
+                    Expanded(child: Text('Home', style: TextStyle(color: Colors.black),)),
+                  ],
+                ),
+              ),
+            ),
+            // Tab(icon: Icon(Icons.home, color: Colors.black,), text: 'Home',),
+            Tab(
+                icon: Icon(Icons.account_box, color: Colors.black,)
+            ),
             Tab(icon: Icon(Icons.ac_unit, color: Colors.black,)),
             Tab(icon: Icon(Icons.accessibility_new_rounded, color: Colors.black,)),
           ]
