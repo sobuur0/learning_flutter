@@ -13,7 +13,7 @@ class _CreateScreenState extends State<CreateScreen> {
   Widget build(BuildContext context) {
     return Container(
       child: Center(
-        child: Text('This child is placed at the center of the screen for the create screen'),
+        child: Text('This child is placed at the center of the screen for the create screen', style: TextStyle(color: Colors.green, fontWeight: FontWeight.bold, fontSize: 12)),
       ),
     );
   }
